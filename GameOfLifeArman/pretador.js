@@ -1,5 +1,5 @@
 class Pretador extends LivingCreatures{
-    constructor(x, y,) {
+    constructor(x, y) {
     super(x,y)
         this.energy = 12
         

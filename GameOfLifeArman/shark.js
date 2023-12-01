@@ -1,10 +1,8 @@
-class Shark {
+class Shark   extends LivingCreatures {
     constructor(x, y) {
-        this.x = x
-        this.y = y
-        this.multiply = 0
+  super(x,y)
         this.energy = 50
-        this.direction = []
+      
     }
 
     getNewCoordinates() {
@@ -23,32 +21,9 @@ class Shark {
 
     choosCell(char, char1, char2) {
         this.getNewCoordinates()
-        let found = []
-
-        for (let i in this.directions) {
-            let x = this.directions[i][0]
-            let y = this.directions[i][1]
-
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == char) {
-                    found.push(this.directions[i])
-                }
-                if (matrix[y][x] == char1) {
-                    found.push(this.directions[i])
-                }
-                if (matrix[y][x] == char2) {
-                    found.push(this.directions[i])
-                }
 
 
-
-
-
-
-            }
-        }
-
-        return found
+        return super.choosCell(char,char1,char2)
     }
 
 
@@ -106,7 +81,7 @@ class Shark {
 
 
     move() {
-        console.log("dsbvdfv", this.energy);
+        
         this.energy--
         let emptyCells = this.choosCell(10)
         let newCell = random(emptyCells)

@@ -1,8 +1,6 @@
-class Gpeople {
+class Gpeople extends LivingCreatures {
     constructor(x, y,) {
-        this.x = x
-        this.y = y
-        this.energy = 20
+        super(x, y)
         this.direction = []
     }
 
@@ -22,27 +20,11 @@ class Gpeople {
 
     choosCell(char) {
         this.getNewCoordinates()
-        let found = []
-
-        for (let i in this.directions) {
-            let x = this.directions[i][0]
-            let y = this.directions[i][1]
-
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == char) {
-                    found.push(this.directions[i])
-                }
-               
-               
-                
-            }
-        }
-
-        return found
+        return super.choosCell(char)
     }
 
 
- 
+
 
 
 
@@ -55,7 +37,7 @@ class Gpeople {
 
         if (newCell) {
 
-            
+
             let newX = newCell[0]
             let newY = newCell[1]
 
@@ -66,11 +48,11 @@ class Gpeople {
             this.x = newX
             this.y = newY
 
-            
+
         }
 
-        if(this.energy <= 0){
-this.die()
+        if (this.energy <= 0) {
+            this.die()
         }
 
 
@@ -81,7 +63,7 @@ this.die()
         for (let i in GpeopleArr) {
 
             if (this.x == GpeopleArr[i].x && this.y == GpeopleArr[i].y) {
-                GpeopleArr.splice(i,1)
+                GpeopleArr.splice(i, 1)
                 break
 
             }
