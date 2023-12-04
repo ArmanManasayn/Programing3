@@ -1,8 +1,8 @@
-let  os = require("os");
+let os = require("os");
 let message = "The platform is "
 
 
-function main(){
+function main() {
 
     console.log(message + os.platform());
 }
