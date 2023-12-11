@@ -1,3 +1,7 @@
+var socket = io();
+
+
+
 function matrixGenerator(matrixSize, grassCount, grassEaterCount, pretadorCount, flowerCount, beeCount, bearCount, RainCount, GpeopleCount) {
     let matrix = []
 
