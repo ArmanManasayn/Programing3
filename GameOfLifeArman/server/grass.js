@@ -11,7 +11,7 @@ module.exports = class Grass extends LivingCreatures{
     mul(){
         this.multiply++
         let emptyCells = this.choosCell(0)
-        let newCell = random(emptyCells)
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if(newCell && this.multiply >= 10){
 

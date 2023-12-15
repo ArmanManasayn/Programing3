@@ -36,7 +36,7 @@ module.exports =  class Fish extends LivingCreatures{
 
     move() {
         this.energy--
-        console.log("aaaa" , this.x,this.y);
+       
         let emptyCells = this.choosCell(10)
         let newCell = random(emptyCells)
 
