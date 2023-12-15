@@ -35,7 +35,7 @@ module.exports = class Gpeople extends LivingCreatures {
     move() {
         this.energy--
         let emptyCells = this.choosCell(0)
-        let newCell = random(emptyCells)
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
 

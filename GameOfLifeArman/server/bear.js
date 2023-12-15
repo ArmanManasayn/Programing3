@@ -35,7 +35,7 @@ module.exports =  class Bear extends LivingCreatures{
 
     eat() {
         let foods = this.choosCell(7,9)
-        let food = random(foods)
+        let food = Math.floor(Math.random() * foods.length)
 
         if (food) {
             this.energy += 20
@@ -67,7 +67,7 @@ module.exports =  class Bear extends LivingCreatures{
 
     move() {
         let emptyCells = this.choosCell(0)
-        let newCell = random(emptyCells)
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
 

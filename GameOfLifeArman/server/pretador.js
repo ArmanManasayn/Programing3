@@ -33,7 +33,7 @@ module.exports = class Pretador extends LivingCreatures{
 
     mul() {
         let emptyCells = this.choosCell(0)
-        let newCell = random(emptyCells)
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
 
@@ -42,7 +42,7 @@ module.exports = class Pretador extends LivingCreatures{
 
             matrix[newY][newX] = 3
 
-            let pred = new Pretador(newX, newY)
+            let pred = new pretadorArr(newX, newY)
             pretadorArr.push(pred)
 
 
@@ -54,15 +54,16 @@ module.exports = class Pretador extends LivingCreatures{
 
     eat() {
         let foods = this.choosCell(1,2,5,9,14)
-        let food = random(foods)
+        let food = Math.floor(Math.random() * foods.length)
+
 
         if (food) {
             this.energy += 10
             let newX = food[0]
             let newY = food[1]
 
-            matrix[newY][newX] = 3
-            matrix[this.y][this.x] = 0
+            matrix[newY][newX] = 3;
+            matrix[this.y][this.x] = 0;
 
             for (let i in grassArr) {
                 if (newX == grassArr[i].x && newY == grassArr[i].y) {
@@ -125,7 +126,7 @@ module.exports = class Pretador extends LivingCreatures{
 
     move() {
         let emptyCells = this.choosCell(0)
-        let newCell = random(emptyCells)
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
 

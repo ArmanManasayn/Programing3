@@ -4,6 +4,7 @@ let server = require('http').Server(app);
 let io = require('socket.io')(server);
 let fs = require("fs");
 const GrassEater = require('./grassEater');
+const Pretador = require('./pretador');
 
 app.use(express.static("../client"));
 
@@ -149,8 +150,8 @@ sharkArr = []
 
 
 Grass = require("./grass")
-Grasseater = require("./grassEater")
-Predator = require("./pretador")
+grassEater = require("./grassEater")
+Pretadorr = require("./pretador")
 Bear = require("./bear")
 Bee = require("./bee")
 Fish = require("./fish")
@@ -171,7 +172,7 @@ function createObject(matrix) {
                 let grEat = new GrassEater(x, y)
                 grassEaterArr.push(grEat)
             } else if (matrix[y][x] == 3) {
-                let pred = new Predator(x, y)
+                let pred = new Pretador(x, y)
                 pretadorArr.push(pred)
 
             } else if (matrix[y][x] == 4) {

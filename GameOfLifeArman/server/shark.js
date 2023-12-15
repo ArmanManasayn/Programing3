@@ -32,7 +32,7 @@ module.exports = class Shark   extends LivingCreatures {
 
     eat() {
         let foods = this.choosCell(13, 15)
-        let food = random(foods)
+        let food = Math.floor(Math.random() * foods.length)
 
         if (food) {
 
@@ -86,7 +86,7 @@ module.exports = class Shark   extends LivingCreatures {
         
         this.energy--
         let emptyCells = this.choosCell(10)
-        let newCell = random(emptyCells)
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
 

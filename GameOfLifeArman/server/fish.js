@@ -38,7 +38,7 @@ module.exports =  class Fish extends LivingCreatures{
         this.energy--
        
         let emptyCells = this.choosCell(10)
-        let newCell = random(emptyCells)
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
            

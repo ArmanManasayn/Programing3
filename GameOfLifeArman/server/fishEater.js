@@ -37,7 +37,7 @@ module.exports =  class FishEater extends LivingCreatures {
 
     eat() {
         let foods = this.choosCell(13)
-        let food = random(foods)
+        let food = Math.floor(Math.random() * foods.length)
 
         if (food) {
             this.energy += 3
@@ -72,7 +72,7 @@ module.exports =  class FishEater extends LivingCreatures {
 
 
         let emptyCells = this.choosCell(10)
-        let newCell = random(emptyCells)
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
 

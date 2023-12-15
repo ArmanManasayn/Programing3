@@ -33,7 +33,7 @@ choosCell(char1) {
     mul() {
         this.multiply++
         let emptyCells = this.choosCell(10)
-        let newCell = random(emptyCells)
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell && this.multiply >= 3) {
 

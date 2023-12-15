@@ -32,7 +32,7 @@ module.exports =  class Bee  extends LivingCreatures{
         this.energy -= 2
         
         let emptyCells = this.choosCell(0)
-        let newCell = random(emptyCells)
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if(newCell && this.multiply >= 6 && this.energy >= 1 ){
        
