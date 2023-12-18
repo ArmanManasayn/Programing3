@@ -104,7 +104,7 @@ function matrixGenerator(matrixSize, grassCount, grassEaterCount, pretadorCount,
         let x = 2; x < matrix.length; x++
 
         if (matrix[y][x] == 0) {
-            matrix[y][x] = 10
+            matrix[y][x] = whinter
         }
 
     }
@@ -281,6 +281,9 @@ setInterval(function(){
         console.log("Write count of charackter")
         });
 }, 1000)
+
+
+
 
 
 

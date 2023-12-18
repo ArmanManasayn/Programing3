@@ -1,6 +1,6 @@
  var socket = io();
 
-var side = 30;
+var side = 40;
 
 function setup() {
     frameRate(15)
@@ -99,6 +99,14 @@ function displayGame(matrix) {
 
             }
 
+            else if (matrix[y][x] == 30) {
+
+                fill("DodgerBlue")
+                rect(x * side, y * side, side, side)
+                textSize(side - 12)
+                text("🧊", x * side, y * side + 32)
+            }
+
             else {
 
                 fill("#CED23A")
@@ -123,3 +131,5 @@ setInterval(
     socket.on('send matrix', displayGame)
     },100
 )
+
+
