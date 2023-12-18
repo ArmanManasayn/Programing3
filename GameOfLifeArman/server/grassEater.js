@@ -42,7 +42,7 @@ module.exports = class GrassEater extends LivingCreatures{
 
             matrix[newY][newX] = 2
 
-            let grEat = new grassEaterArr(newX, newY)
+            let grEat = new GrassEater(newX, newY)
             grassEaterArr.push(grEat)
 
 
@@ -52,7 +52,7 @@ module.exports = class GrassEater extends LivingCreatures{
 
     eat() {
         let foods = this.choosCell(1,5,14)
-        let food = Math.floor(Math.random() * foods.length)
+        let food = foods[Math.floor(Math.random() * foods.length)]
 
         if (food) {
             this.energy += 3

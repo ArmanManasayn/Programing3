@@ -13,7 +13,7 @@ module.exports = class Grass extends LivingCreatures{
         let emptyCells = this.choosCell(0)
         let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
-        if(newCell && this.multiply >= 10){
+        if(newCell && this.multiply >= 5){
 
             let newX = newCell[0]
             let newY = newCell[1]

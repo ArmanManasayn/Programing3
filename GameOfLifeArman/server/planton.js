@@ -1,10 +1,7 @@
 let LivingCreatures = require ("./livingCreatures")
 
 module.exports = class Planton extends LivingCreatures {
-    constructor(x, y) {
-super(x,y)
 
-    }
 getNewCoordinates() {
     this.directions = [
         [this.x - 1, this.y - 1],
@@ -23,9 +20,6 @@ getNewCoordinates() {
 
 choosCell(char1) {
     this.getNewCoordinates()
-    
-
-
 
     return super.choosCell(char1)
 }

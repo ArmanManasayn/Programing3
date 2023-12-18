@@ -1,19 +1,15 @@
-var socket = io();
+ var socket = io();
 
-
-
-
-
+var side = 30;
 
 function setup() {
-    frameRate(13)
-    createCanvas(matrix[0].length * side, matrix.length * side)
+    frameRate(15)
+    createCanvas(20 * side, 20* side)
 
 
 }
 
 function displayGame(matrix) {
-
    
 
     for (let y = 0; y < matrix.length; y++) {
@@ -71,12 +67,7 @@ function displayGame(matrix) {
                 textSize(side - 12)
                 text("💧", x * side, y * side + 32)
             }
-            else if (matrix[y][x] == 11) {
-                fill("LightCyan")
-                rect(x * side, y * side, side, side)
-                textSize(side - 12)
-                text("🙎‍♂️", x * side, y * side + 32)
-            }
+           
 
             else if (matrix[y][x] == 13) {
                 fill("DodgerBlue")
@@ -122,15 +113,13 @@ function displayGame(matrix) {
 
     
 
-    setInterval(
-        function () {
-        socket.on('send matrix', displayGame)
-        },1000
-    )
-    
+
 
 
 }
-// programing3
-//hello
 
+setInterval(
+    function () {
+    socket.on('send matrix', displayGame)
+    },100
+)

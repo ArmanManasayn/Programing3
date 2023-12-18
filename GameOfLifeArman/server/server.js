@@ -3,8 +3,7 @@ let app = express();
 let server = require('http').Server(app);
 let io = require('socket.io')(server);
 let fs = require("fs");
-const GrassEater = require('./grassEater');
-const Pretador = require('./pretador');
+
 
 app.use(express.static("../client"));
 
@@ -17,7 +16,7 @@ server.listen(3000, () => {
 
 
 
-function matrixGenerator(matrixSize, grassCount, grassEaterCount, pretadorCount, flowerCount, beeCount, bearCount, RainCount, GpeopleCount) {
+function matrixGenerator(matrixSize, grassCount, grassEaterCount, pretadorCount, flowerCount, beeCount, bearCount, RainCount, ) {
     let matrix = []
 
     for (let i = 0; i < matrixSize; i++) {
@@ -109,15 +108,7 @@ function matrixGenerator(matrixSize, grassCount, grassEaterCount, pretadorCount,
         }
 
     }
-    for (let i = 0; i < GpeopleCount; i++) {
-        let x = Math.floor(Math.random() * matrixSize)
-        let y = Math.floor(Math.random() * matrixSize)
 
-        if (matrix[y][x] == 0) {
-            matrix[y][x] = 11
-        }
-
-    }
 
 
 
@@ -130,7 +121,7 @@ function matrixGenerator(matrixSize, grassCount, grassEaterCount, pretadorCount,
 
     return matrix
 }
-matrix = matrixGenerator(20, 25, 13, 7, 7, 2, 12, 2, 1, 1)
+matrix = matrixGenerator(20, 25, 13, 7, 2, 2, 12, 2, 1, 1)
 
 io.sockets.emit('send matrix', matrix)
 
@@ -150,15 +141,14 @@ sharkArr = []
 
 
 Grass = require("./grass")
-grassEater = require("./grassEater")
-Pretadorr = require("./pretador")
+GrassEater = require("./grassEater")
+Pretador = require("./pretador")
 Bear = require("./bear")
 Bee = require("./bee")
 Fish = require("./fish")
 FishEater = require("./fishEater")
 Flower = require("./flower")
-Gpeople = require("./goodPeople")
-PLanton = require("./planton")
+Planton = require("./planton")
 Rain = require("./Rain")
 Shark = require("./shark")
 
@@ -191,10 +181,7 @@ function createObject(matrix) {
                 let rain = new Rain(x, y)
                 RainArr.push(rain)
             }
-            else if (matrix[y][x] == 11) {
-                let gp = new Gpeople(x, y)
-                GpeopleArr.push(gp)
-            }
+         
 
             else if (matrix[y][x] == 13) {
                 let fish = new Fish(x, y)
@@ -259,9 +246,41 @@ function game() {
     }
     io.sockets.emit("send matrix", matrix);
 }
-setInterval(game, 1000)
+setInterval(game,100)
     
 
 io.on('connection', function () {
+  
     createObject(matrix)
 })
+
+
+let statistic ={
+    grass:0,
+    grasseater:0,
+    predator:0,
+    bear:0,
+    bee:0,
+    fish:0,
+    fisheater:0,
+    flower:0,
+    shark:0,
+}
+setInterval(function(){
+    statistic.grass= grassArr.length;
+    statistic.grasseater = grassEaterArr.length;
+    statistic.predator = pretadorArr.length;
+    statistic.bear = bearArr.length;
+    statistic.bee = beeArr.length;
+    statistic.fish = fishArr.length;
+    statistic.fisheater = fishEaterArr.length;
+    statistic.flower= flowerArr.length;
+    statistic.shark = sharkArr.length;
+
+    fs.writeFile("statistics.json", JSON.stringify(statistic), function(err){
+        console.log("Write count of charackter")
+        });
+}, 1000)
+
+
+

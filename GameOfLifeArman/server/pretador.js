@@ -3,7 +3,7 @@ let LivingCreatures = require ("./livingCreatures")
 module.exports = class Pretador extends LivingCreatures{
     constructor(x, y) {
     super(x,y)
-        this.energy = 12
+        this.energy = 5
         
     }
 
@@ -42,7 +42,7 @@ module.exports = class Pretador extends LivingCreatures{
 
             matrix[newY][newX] = 3
 
-            let pred = new pretadorArr(newX, newY)
+            let pred = new Pretador(newX, newY)
             pretadorArr.push(pred)
 
 
@@ -54,11 +54,11 @@ module.exports = class Pretador extends LivingCreatures{
 
     eat() {
         let foods = this.choosCell(1,2,5,9,14)
-        let food = Math.floor(Math.random() * foods.length)
+        let food = foods[Math.floor(Math.random() * foods.length)]
 
 
         if (food) {
-            this.energy += 10
+            this.energy += 2
             let newX = food[0]
             let newY = food[1]
 
