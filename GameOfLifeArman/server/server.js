@@ -246,7 +246,7 @@ function game() {
     }
     io.sockets.emit("send matrix", matrix);
 }
-setInterval(game,100)
+setInterval(game,1000)
     
 
 io.on('connection', function () {
@@ -280,7 +280,7 @@ setInterval(function(){
     fs.writeFile("statistics.json", JSON.stringify(statistic), function(err){
         console.log("Write count of charackter")
         });
-}, 1000)
+}, 6000)
 
 
 
