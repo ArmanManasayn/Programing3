@@ -8,11 +8,22 @@ winther.addEventListener("click", Whiner)
 let summer = document.getElementById("summer");
 summer.addEventListener("click", Summer)
 
+let autumn = document.getElementById("autumn");
+autumn.addEventListener("click", Autumn)
+
 function Whiner() {
     weather = "whinter"
+    console.log(weather);
 }
 function Summer() {
     weather = "summer"
+    console.log(weather);
+}
+
+function Autumn() {
+    weather = "autumn"
+    console.log(weather);
+
 }
 
 let side = 40;
@@ -34,91 +45,113 @@ function displayGame(matrix) {
                     fill("white")
                     rect(x * side, y * side, side, side)
                     textSize(side - 12).
-                    text("🧊", x * side, y * side + 32)
-                } else if (weather === "summer") {
+                        text("❄️", x * side, y * side + 32)
+                } if (weather === "summer") {
                     fill("green")
                     rect(x * side, y * side, side, side)
                     textSize(side - 12).
                         text("🌱", x * side, y * side + 32)
                 }
+                if (weather === "autumn") {
+                    fill("orange")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12).
+                        text("🍁", x * side, y * side + 32)
+
+                }
+
+
             } else if (matrix[y][x] == 2) {
                 if (weather === "whinter") {
-             
-            }else if (weather = "summer"){
-                fill("yellow")
-                rect(x * side, y * side, side, side)
-                textSize(side - 12)
-                text("🐛", x * side, y * side + 32)
+
                 }
+             
+                else if (weather = "summer") {
+               
+                    fill("yellow")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("🐛", x * side, y * side + 32)
+                }
+             
             } else if (matrix[y][x] == 3) {
-                fill("grey")
-                rect(x * side, y * side, side, side)
-                textSize(side - 12)
-                text("🌪", x * side, y * side + 32)
+                if (weather === "whinter") {
+
+                }
+
+                if (weather === "summer") {
+
+                    fill("grey")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("🌪", x * side, y * side + 32)
+                }
             }
             else if (matrix[y][x] == 4) {
                 if (weather === "whinter") {
-          
-                }else if (weather ="summer") {
+
+                }
+                else if (weather = "summer") {
                     fill("pink")
                     rect(x * side, y * side, side, side)
                     textSize(side - 12)
-                    text("", x * side, y * side + 32)
+                    text("🌷", x * side, y * side + 32)
                 }
             } else if (matrix[y][x] == 5) {
                 if (weather === "whinter") {
-          
-            } else if(weather = "summer"){
-  fill("yellowgreen")
-                rect(x * side, y * side, side, side)
-                textSize(side - 12)
-                text("☘️", x * side, y * side + 32)
+
+                }
+                else if (weather = "summer") {
+                    fill("yellowgreen")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("☘️", x * side, y * side + 32)
+                }
             }
-        }
             else if (matrix[y][x] == 7) {
                 if (weather === "whinter") {
-          
-                } 
-                if (weather === "summer"){
-                fill("orange")
-                rect(x * side, y * side, side, side)
-                textSize(side - 12)
-                text("🐝", x * side, y * side + 32)
+
+                }
+                if (weather === "summer") {
+                    fill("orange")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("🐝", x * side, y * side + 32)
+                }
             }
-        }
             else if (matrix[y][x] == 8) {
+
+
                 if (weather === "whinter") {
-                    fill("Lighter")
+                    fill("white")
                     rect(x * side, y * side, side, side)
                     textSize(side - 12)
                     text("🐻‍❄️", x * side, y * side + 32)
-                } 
+                }
 
 
-
-
-                if (weather === "summer"){
-                fill("Sienna")
-                rect(x * side, y * side, side, side)
-                textSize(side - 12)
-                text("🐻", x * side, y * side + 32)
+                if (weather === "summer") {
+                    fill("Sienna")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("🐻", x * side, y * side + 32)
                 }
             }
             else if (matrix[y][x] == 9) {
 
                 if (weather === "whinter") {
-          
-                } 
+
+                }
 
 
-                if (weather === "summer"){
+                if (weather === "summer") {
 
-                fill("Tomato")
-                rect(x * side, y * side, side, side)
-                textSize(side - 12)
-                text("🍯", x * side, y * side + 32)
+                    fill("Tomato")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("🍯", x * side, y * side + 32)
+                }
             }
-        }
             else if (matrix[y][x] == 10) {
 
 
@@ -127,62 +160,93 @@ function displayGame(matrix) {
                     rect(x * side, y * side, side, side)
                     textSize(side - 12)
                     text("🧊", x * side, y * side + 32)
-                } 
+                }
 
 
 
 
-                if (weather === "summer"){
-                fill("DodgerBlue")
-                rect(x * side, y * side, side, side)
-                textSize(side - 12)
-                text("💧", x * side, y * side + 32)
+                if (weather === "summer") {
+                    fill("DodgerBlue")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("💧", x * side, y * side + 32)
                 }
             }
 
 
             else if (matrix[y][x] == 13) {
-                fill("DodgerBlue")
-                rect(x * side, y * side, side, side)
-                textSize(side - 12)
-                text("🐠", x * side, y * side + 32)
+                if (weather === "whinter") {
+
+                }
+
+                if (weather === "summer") {
+                    fill("DodgerBlue")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("🐠", x * side, y * side + 32)
+                }
             }
-            else if (matrix[y][x] == 14) {
-                fill("DarkRed")
-                rect(x * side, y * side, side, side)
-                textSize(side - 12)
-                text("🌹", x * side, y * side + 32)
-            }
+
             else if (matrix[y][x] == 15) {
-                fill("DodgerBlue")
-                rect(x * side, y * side, side, side)
-                textSize(side - 12)
-                text("🐡", x * side, y * side + 32)
+
+                if (weather === "whinter") {
+
+                }
+
+                if (weather === "summer") {
+                    fill("DodgerBlue")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("🐡", x * side, y * side + 32)
+                }
             }
+
+
             else if (matrix[y][x] == 16) {
-                fill("Blue")
-                rect(x * side, y * side, side, side)
-                textSize(side - 12)
-                text("🦈", x * side, y * side + 32)
+
+                if (weather === "whinter") {
+
+                }
+
+                if (weather === "summer") {
+                    fill("Blue")
+                    rect(x * side, y * side, side, side)
+                    textSize(side - 12)
+                    text("🦈", x * side, y * side + 32)
+                }
             }
+
             else if (matrix[y][x] == 20) {
+                if (weather === "whinter") {
+                   
+                    fill("#B3DAF1")
+                    rect(x * side, y * side, side, side)
+                }
+
+                if (weather === "summer") {
                 fill("#CED23A")
                 rect(x * side, y * side, side, side)
 
             }
+          
+        }
 
-            else if (matrix[y][x] == 30) {
-
-                fill("DodgerBlue")
-                rect(x * side, y * side, side, side)
-                textSize(side - 12)
-                text("🧊", x * side, y * side + 32)
-            }
+      
 
             else {
 
-                fill("#CED23A")
-                rect(x * side, y * side, side, side)
+                if (weather === "whinter") {
+                   
+                    fill("#B3DAF1")
+                    rect(x * side, y * side, side, side)
+                }
+
+                if (weather === "summer") {
+                    fill("#CED23A")
+                    rect(x * side, y * side, side, side)
+    
+                }
+    
 
             }
 
